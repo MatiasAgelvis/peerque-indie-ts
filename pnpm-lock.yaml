@@ -28,7 +28,6 @@ specifiers:
   cookie: ^0.5.0
   cross-env: ^7.0.3
   cypress: ^10.6.0
-  dayjs: ^1.11.5
   eslint: ^8.22.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-cypress: ^2.12.1
@@ -61,7 +60,6 @@ dependencies:
   '@remix-run/serve': 1.7.0_biqbaboplfbrettd7655fr4n2y
   '@remix-run/server-runtime': 1.7.0_biqbaboplfbrettd7655fr4n2y
   bcryptjs: 2.4.3
-  dayjs: 1.11.5
   got-scraping: 3.2.10
   isbot: 3.5.2
   react: 18.2.0
@@ -3720,6 +3718,7 @@ packages:
 
   /dayjs/1.11.5:
     resolution: {integrity: sha512-CAdX5Q3YW3Gclyo5Vpqkgpj8fSdLQcRuzfX6mC6Phy0nfJ0eGYOeS7m4mt2plDWLAtA4TqTakvbboHvUxfe4iA==}
+    dev: true
 
   /deasync/0.1.28:
     resolution: {integrity: sha512-QqLF6inIDwiATrfROIyQtwOQxjZuek13WRYZ7donU5wJPLoP67MnYxA6QtqdvdBy2mMqv5m3UefBVdJjvevOYg==}
