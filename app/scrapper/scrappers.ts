@@ -3,6 +3,10 @@ function regexCount(str: string, pattern: string | RegExp): number {
 	return ((str || "").match(pattern) || []).length;
 }
 
+export function date(str: string): number {
+	return new Date(str).getTime();
+}
+
 export type scrapperOptions = {
 	avgScore: string | object;
 	reviewCount: string | object;
@@ -21,13 +25,11 @@ export type scrapperResult = {
 	avgScore: number;
 	reviewCount: number;
 
-	reviews: [
-		{
-			stars: number;
-			likes: number;
-			date: Date;
-		}
-	];
+	reviews: Array<{
+		stars: number;
+		likes: number;
+		date: number;
+	}>;
 };
 
 export const courseraScrapper = {
@@ -51,8 +53,7 @@ export const courseraScrapper = {
 			},
 			date: {
 				selector: ".dateOfReview",
-
-				convert: (x: string) => new Date(x),
+				convert: (x: string) => date(x),
 			},
 		},
 	},
