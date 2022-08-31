@@ -1,13 +1,13 @@
 import { readFileSync } from "fs";
 import { expect, test } from "vitest";
-import { peerqueScore } from "~/scrapper/muncher";
-import { courseraScrapper, scrapperResult } from "~/scrapper/scrappers";
+import { peerqueScore, scrape } from "~/scrapper/muncher";
+import { courseraScrapper, date, scrapperResult } from "~/scrapper/scrappers";
 
-test("should work as expected", () => {
+test("Coursera scrape should extract the expected data", () => {
   const HTML = readFileSync(__dirname + "/" + "reviewPage.html").toString();
   expect(HTML).not.null;
 
-  const scrappe = peerqueScore(HTML, courseraScrapper, null);
+  const scrappe = scrape(HTML, courseraScrapper);
   console.log(scrappe);
   expect(scrappe).not.null;
   expect(scrappe.reviews.length).toBe(25);
@@ -19,10 +19,11 @@ test("should work as expected", () => {
     14, 6, 5, 4, 4, 4, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1,
   ]);
 
-  expect(scrappe.reviews[0].date.getMonth()).toBeCloseTo(
-    new Date("2019-07-06").getMonth()
-  );
-  expect(scrappe.reviews[0].date.getFullYear()).toBeCloseTo(
-    new Date("2019-07-06").getFullYear()
-  );
+  expect(scrappe.reviews[0].date).toBeCloseTo(date("2019-07-06"));
+
+  expect(scrappe.reviews[0]).toStrictEqual({
+    stars: 2,
+    likes: 14,
+    date: date("2019-07-06"),
+  });
 });
