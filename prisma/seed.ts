@@ -40,6 +40,31 @@ async function seed() {
     },
   });
 
+  await prisma.coursera.create({
+    data: {
+      name: "python",
+      type: "learn",
+      url: "https://thoughtful-wont.info/learn/python",
+      score: 4.5,
+    },
+  });
+  await prisma.coursera.create({
+    data: {
+      name: "leadership",
+      type: "learn",
+      url: "https://thoughtful-wont.info/learn/leadership",
+      score: 4.0,
+    },
+  });
+  await prisma.coursera.create({
+    data: {
+      name: "nonsense",
+      type: "learn",
+      url: "https://thoughtful-wont.info/learn/nonsense",
+      score: 2.5,
+    },
+  });
+
   console.log(`Database has been seeded. 🌱`);
 }
 
